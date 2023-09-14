@@ -24,6 +24,4 @@ body {
   font-family: 'Barlow Semi Condensed', sans-serif;
   color: white;
   background: radial-gradient(circle at center, var(--Radial-Gradient), var(--Radial-Gradient-2));
-  width: 60%;
-  margin: 3% auto;
 }
