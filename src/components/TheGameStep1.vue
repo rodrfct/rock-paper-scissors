@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import TheGamePick from './TheGamePick.vue';
 
+defineEmits(['picked'])
+
 </script>
 
 <template>
     <div id="step-1">
-        <TheGamePick id="paper" pick="paper" />
-        <TheGamePick id="scissors" pick="scissors" />
-        <TheGamePick id="rock" pick="rock" />
+        <TheGamePick id="paper" pick="paper" @click="$emit('picked', 'paper')" />
+        <TheGamePick id="scissors" pick="scissors" @click="$emit('picked', 'scissors')" />
+        <TheGamePick id="rock" pick="rock" @click="$emit('picked', 'rock')" />
 
         <img src="@/assets/images/bg-triangle.svg" alt="">
     </div>

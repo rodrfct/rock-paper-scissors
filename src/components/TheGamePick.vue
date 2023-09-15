@@ -19,7 +19,7 @@ const img = computed(() => {
     return scissors
 })
 
-const bgColor = computed(() => {
+const shadowColor = computed(() => {
     if (img.value == rock) {
         return 'var(--Rock-Gradient)'
     } else if (img.value == paper) {
@@ -27,6 +27,16 @@ const bgColor = computed(() => {
     }
 
     return 'var(--Scissors-Gradient)'
+})
+
+const borderColor = computed(() => {
+    if (img.value == rock) {
+        return 'var(--Rock-Gradient-2)'
+    } else if (img.value == paper) {
+        return 'var(--Paper-Gradient-2)'
+    }
+
+    return 'var(--Scissors-Gradient-2)'
 })
 
 </script>
@@ -41,8 +51,16 @@ const bgColor = computed(() => {
 button {
     aspect-ratio: 1/1;
     width: 140px;
-    background-color: white;
-    border: 15px solid v-bind(bgColor);
+    background-color: #eee;
+    border: 17px solid v-bind(borderColor);
     border-radius: 50%;
+
+    box-shadow: 0 7px v-bind(shadowColor);
+    transition: filter .5s ease;
+    cursor: pointer;
+
+    :hover {
+        filter: brightness(150%);
+    }
 }
 </style>
