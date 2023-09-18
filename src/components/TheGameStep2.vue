@@ -85,7 +85,9 @@ function getRandomInt(min: number, max: number) {
         <p id="house-text">The house picked</p>
 
         
-        <TheGamePick id="user-pick" :pick="userPick" />
+        <TheGamePick id="user-pick"
+        :pick="userPick"
+        :class="{'winner-pick': winner == 'user'}" />
 
         <div v-if="winner" class="winner"
         :style="{
@@ -100,7 +102,9 @@ function getRandomInt(min: number, max: number) {
             </button>
         </div>
 
-        <TheGamePick v-if="housePick.hasPicked" id="house-pick" :pick="housePick.pick" />
+        <TheGamePick v-if="housePick.hasPicked" id="house-pick"
+        :pick="housePick.pick"
+        :class="{'winner-pick': winner == 'house'}" />
         <div v-else class="shadow"></div>
     </div>
 </template>
@@ -136,6 +140,11 @@ function getRandomInt(min: number, max: number) {
         border-radius: 50%;
     }
 
+    > button {
+        width: 190px;
+        border-width: 25px;
+    }
+
     #user-pick {
         grid-row: 2;
         grid-column: 1;
@@ -145,6 +154,16 @@ function getRandomInt(min: number, max: number) {
     #house-pick {
         grid-row: 2;
         grid-column: 3;
+    }
+
+    .winner-pick {
+        --Radial-Gradient: hsla(214, 47%, 23%, .8);
+        --Radial-Gradient-2: hsla(237, 49%, 15%, .8);
+        
+        /*I'm not getting the colors right */
+        box-shadow: 0 0 0 50px hsla(229, 25%, 31%, .4), 
+            0 0 0 100px hsla(214, 47%, 23%, .3),
+            0 0 0 150px hsla(214, 47%, 23%, .2);
     }
 
     .winner {
