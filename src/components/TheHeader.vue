@@ -20,7 +20,7 @@ const props = defineProps({
 <style>
 header {
     width: 60%;
-    margin: 3% auto 7% auto;
+    margin: 3% auto 5% auto;
 
     border: 2px solid var(--Header-Outline);
     border-radius: 10px;

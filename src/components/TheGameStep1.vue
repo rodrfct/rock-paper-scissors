@@ -18,6 +18,7 @@ defineEmits(['picked'])
 <style>
 #step-1 {
     background-size: 100%;
+    aspect-ratio: 4/3;
     width: 50%;
     margin: auto;
 
@@ -25,9 +26,12 @@ defineEmits(['picked'])
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     justify-items: center;
+    align-items: center;
     row-gap: 25%;
 
-    & img {
+    > img {
+        aspect-ratio: 4/3;
+        height: 65%;
         grid-row: 1/-1;
         grid-column: 1/-1;
         place-self: center;
