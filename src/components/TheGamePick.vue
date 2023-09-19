@@ -19,6 +19,16 @@ const img = computed(() => {
     return scissors
 })
 
+const alt = computed(() => {
+    if (props.pick == "rock") {
+        return 'rock'
+    } else if (props.pick == "paper") {
+        return 'paper'
+    }
+
+    return 'scissors'
+})
+
 const shadowColor = computed(() => {
     if (img.value == rock) {
         return 'var(--Rock-Gradient)'
@@ -43,7 +53,7 @@ const borderColor = computed(() => {
 
 <template>
     <button type="button">
-        <img :src="img" alt="">
+        <img :src="img" :alt="alt">
     </button>
 </template>
 
