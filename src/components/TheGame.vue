@@ -14,12 +14,29 @@ const picked = ref<Pick>()
 
 <template>
     <main>
-        <TheGameStep1 v-if="!hasPicked" @picked="(pick: Pick) => {
+        <Transition mode="out-in">
+            <TheGameStep1 v-if="!hasPicked" @picked="(pick: Pick) => {
             hasPicked = true; picked = pick
-        }" />
-        <TheGameStep2 v-else
-        :userPick="picked"
-        @finished="(winner: Winner) => {emit('finished', winner)}"
-        @repeat="hasPicked = false" />
+            }"
+            key="step1" />
+
+            <TheGameStep2 v-else
+            :userPick="picked"
+            @finished="(winner: Winner) => {emit('finished', winner)}"
+            @repeat="hasPicked = false"
+            key="step2" />
+        </Transition>
     </main>
 </template>
+
+<style>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+</style>
