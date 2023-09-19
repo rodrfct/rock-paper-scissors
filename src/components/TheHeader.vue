@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Score from './Score.vue';
 
-const props = defineProps({
+defineProps({
     score: {
         type: Number,
         required: true
@@ -28,12 +28,17 @@ header {
 
     display: flex;
     justify-content: space-between;
+    
+    & h1 {
+        width: min-content;
+        margin: 0;
+        text-transform: uppercase;
+        line-height: .9;
+    }
+
+    @media (width < 420px) {
+        width: 80%;
+    }
 }
 
-header h1 {
-    width: min-content;
-    margin: 0;
-    text-transform: uppercase;
-    line-height: .9;
-}
 </style>

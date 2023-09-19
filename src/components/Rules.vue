@@ -22,6 +22,7 @@ const rules = ref<HTMLDialogElement | null>(null)
 <style>
 #rules-btn {
     background-color: inherit;
+    cursor: pointer;
     color: white;
     text-transform: uppercase;
     font-weight: 600;
@@ -33,6 +34,13 @@ const rules = ref<HTMLDialogElement | null>(null)
     position: absolute;
     bottom: 3%;
     right: 3%;
+
+    @media (width < 420px) {
+        bottom: 20%;
+        left: 50%;
+    
+        translate: -50% 0;
+    }
 }
 
 #rules {
@@ -43,6 +51,11 @@ const rules = ref<HTMLDialogElement | null>(null)
     &::backdrop {
         background-color: black;
         opacity: .5;
+    }
+
+    & img {
+        width: 90%;
+        margin: auto;
     }
 
     & form {
@@ -59,7 +72,28 @@ const rules = ref<HTMLDialogElement | null>(null)
         & button {
             background-color: inherit;
             border: none;
+            cursor: pointer;
         }
+    }
+
+    @media (width < 420px) {
+        width: 100%;
+        height: 100%;
+
+        & form {
+            display: block;
+            text-align: center;
+            margin-bottom: 50%;
+            
+            & button {
+                position: absolute;
+                bottom: 20%;
+                left: 50%;
+    
+                translate: -50% 0;
+            }
+        }
+
     }
 }
 </style>

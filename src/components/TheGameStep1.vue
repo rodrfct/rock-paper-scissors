@@ -19,7 +19,7 @@ defineEmits(['picked'])
 #step-1 {
     background-size: 100%;
     aspect-ratio: 4/3;
-    width: 50%;
+    max-width: 50%;
     margin: auto;
 
     display: grid;
@@ -28,6 +28,12 @@ defineEmits(['picked'])
     justify-items: center;
     align-items: center;
     row-gap: 25%;
+
+    @media (width < 420px) {
+        max-width: 90%;
+        margin-top: 20%;
+        aspect-ratio: 3/1;
+    }
 
     > img {
         aspect-ratio: 4/3;

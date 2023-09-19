@@ -124,6 +124,17 @@ function getRandomInt(min: number, max: number) {
     text-transform: uppercase;
     font-weight: 600;
 
+    @media (width < 420px) {
+        margin: 0;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr 1fr;
+
+        .winner {
+            grid-row: 3 !important;
+            grid-column: 1/4 !important;
+        }
+    }
+
     & p {
         grid-row: 1;
 
@@ -143,6 +154,11 @@ function getRandomInt(min: number, max: number) {
     > button {
         width: 190px;
         border-width: 25px;
+
+        @media (width < 420px) {
+            width: 140px;
+            border-width: 17px;
+        }
     }
 
     #user-pick {
@@ -168,7 +184,6 @@ function getRandomInt(min: number, max: number) {
 
     .winner {
         grid-row: 2;
-        /* min-width: max-content; */
 
         transition: width 1s ease;
 
